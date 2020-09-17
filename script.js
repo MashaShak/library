@@ -1,4 +1,4 @@
-const display = document.querySelector("#display");
+
 const book1 = {
 title: "War and Peace",
 author: "Leo Tolstoy",
@@ -46,12 +46,13 @@ function addBookToLibrary() {
 
 //display all books, go through the array and show the book in the list from the end of the array
 function displayBooks(){
+    const display = document.querySelector("#display");
     mylibrary.forEach(book => {
         let divBook = document.createElement("div"); 
         const btnDeleteBook = document.createElement("button");
         btnDeleteBook.innerHTML = "<img src='https://img.icons8.com/ios/30/000000/delete-forever.png'/>";
         display.appendChild(divBook);
-        divBook.classList.add("book-grid");
+        divBook.classList.add("card");
         for (let key in book) {
             let divKey = document.createElement("div");
             divKey.textContent = book[key];
@@ -64,7 +65,7 @@ function displayBooks(){
 
 function displayListOfBooks() {
     mylibrary.forEach(book => { 
-        let tableBooks = document.querySelector("#tableBooks");
+        let tableBooks = document.querySelector("table");
         let trBook = document.createElement("tr");
         tableBooks.appendChild(trBook);
         const btnDeleteBook = document.createElement("button");
