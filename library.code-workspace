@@ -1,0 +1,16 @@
+{
+    "folders": [
+        {
+            "path": "../shayhowe"
+        },
+        {
+            "path": "../youtube-copy"
+        },
+        {
+            "path": "../book-library"
+        }
+    ],
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "book-library"
+    }
+}

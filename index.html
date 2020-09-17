@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head lang="en">
+    <title>Library</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>My Library</h1>
+    </header>
+    <section class="container">
+        <div class="wrapper">
+            <a href="#">Add New Book <span class="material-icons moved">library_add</span></a>
+        </div>
+        <form class="forms" id="add-book" hidden>
+                <input type="text" name="title" id="title" placeholder="title"></br>
+                <input type="text" name="author" id="author" placeholder="author"></br>
+                <input type="number" name="pages" id="pages" placeholder="pages"></br>
+                <input type="radio" name="status" id="status"></br>
+                <label for="status">Have you read it?</label>
+                <button type="button">ADD</button>
+            </form>
+    </section>
+   <section class="container">    
+        <input class="radio" id="show-list" name="group" type="radio" checked>
+        <input class="radio" id="show-display" name="group" type="radio">
+        <div class="group tabs new-section">
+            <label class="tab" for="show-list"><i class="material-icons right">list_alt</i></label>
+            <label class="tab" for="show-display"><i class="material-icons right">apps</i></label>
+            <h2>My Books</h2>
+        </div>
+        <div class="panels">
+            <div class="panel" id="display">
+                <div class="card">
+                    <div>When i say no, i feel guilty: assertivness training</div>
+                    <div>Manuel J.Smith, Ph.D.</div>
+                    <div>324pages</div>
+                    <div>Read  <i class="material-icons moved">toggle_on</i></div>
+                    <button class="btn-delete"><i class="material-icons">delete</i></button>
+                </div>
+                <div class="card">
+                    <div>War and Peace</div>
+                    <div>Leo Tolstoy</div>
+                    <div>355pages</div>
+                    <div>Read  <i class="material-icons moved">toggle_on</i></div>
+                    <i class="material-icons">delete</i>
+                </div>
+                <div class="card">
+                    <div>War and Peace</div>
+                    <div>Leo Tolstoy</div>
+                    <div>355pages</div>
+                    <div>Read  <i class="material-icons moved">toggle_on</i></div>
+                    <i class="material-icons">delete</i>
+                </div>
+                <div class="card">
+                    <div>War and Peace</div>
+                    <div>Leo Tolstoy</div>
+                    <div>355pages</div>
+                    <div>Read  <i class="material-icons moved">toggle_on</i></div>
+                    <i class="material-icons">delete</i>
+                </div>
+            </div>
+            <div class="panel" id="list">
+            <table>
+               <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Pages</th>
+                    <th>Status</th>
+                    <th>delete</th>
+               </tr>
+               <tr>
+                    <td>When i say no, i feel guilty: assertivness training</td>
+                    <td>Manuel J.Smith, Ph.D.</td>
+                    <td>Pages</td>
+                    <td>Read  <i class="material-icons moved">toggle_on</i></td>
+                    <td><button class="btn-delete"><i class="material-icons">delete</i></button></td>
+               </tr>
+                <tr>
+                    <td>War and Peace</td>
+                    <td>Manuel J.Smith, Ph.D.</td>
+                    <td>Pages</td>
+                    <td>Read  <i class="material-icons moved">toggle_on</i></td>
+                    <td><button class="btn-delete"><i class="material-icons">delete</i></button></td>
+               </tr>
+               <tr>
+                    <td>LALALALALALALALALAnd</td>
+                    <td>Manuel J.Smith, Ph.D.</td>
+                    <td>Pages</td>
+                    <td>Read<i class="material-icons moved">toggle_on</i></td>
+                    <td><button class="btn-delete"><i class="material-icons">delete</i></button></td>
+                </tr>   
+            </table>
+             </div>
+        </div>
+    </section>
+    <footer></footer>
+    <script src="script.js"></script>
+</body>
+
+    
