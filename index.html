@@ -10,11 +10,9 @@
     <header>
         <h1>My Library</h1>
     </header>
-    <section class="container">
-        <div class="wrapper">
-            <a href="#">Add New Book <span class="material-icons moved">library_add</span></a>
-        </div>
-        <form class="forms" id="add-book" hidden>
+    <section class="group container wrapper">
+        <button class="btn-add" type="button" onclick="showForm()">Add New Book <span class="material-icons moved">library_add</span></button>
+        <form class="forms" id="add-book">
                 <input type="text" name="title" id="title" placeholder="title"></br>
                 <input type="text" name="author" id="author" placeholder="author"></br>
                 <input type="number" name="pages" id="pages" placeholder="pages"></br>
@@ -33,34 +31,7 @@
         </div>
         <div class="panels">
             <div class="panel" id="display">
-                <div class="card">
-                    <div>When i say no, i feel guilty: assertivness training</div>
-                    <div>Manuel J.Smith, Ph.D.</div>
-                    <div>324pages</div>
-                    <div>Read  <i class="material-icons moved">toggle_on</i></div>
-                    <button class="btn-delete"><i class="material-icons">delete</i></button>
-                </div>
-                <div class="card">
-                    <div>War and Peace</div>
-                    <div>Leo Tolstoy</div>
-                    <div>355pages</div>
-                    <div>Read  <i class="material-icons moved">toggle_on</i></div>
-                    <i class="material-icons">delete</i>
-                </div>
-                <div class="card">
-                    <div>War and Peace</div>
-                    <div>Leo Tolstoy</div>
-                    <div>355pages</div>
-                    <div>Read  <i class="material-icons moved">toggle_on</i></div>
-                    <i class="material-icons">delete</i>
-                </div>
-                <div class="card">
-                    <div>War and Peace</div>
-                    <div>Leo Tolstoy</div>
-                    <div>355pages</div>
-                    <div>Read  <i class="material-icons moved">toggle_on</i></div>
-                    <i class="material-icons">delete</i>
-                </div>
+                
             </div>
             <div class="panel" id="list">
             <table>
@@ -71,27 +42,7 @@
                     <th>Status</th>
                     <th>delete</th>
                </tr>
-               <tr>
-                    <td>When i say no, i feel guilty: assertivness training</td>
-                    <td>Manuel J.Smith, Ph.D.</td>
-                    <td>Pages</td>
-                    <td>Read  <i class="material-icons moved">toggle_on</i></td>
-                    <td><button class="btn-delete"><i class="material-icons">delete</i></button></td>
-               </tr>
-                <tr>
-                    <td>War and Peace</td>
-                    <td>Manuel J.Smith, Ph.D.</td>
-                    <td>Pages</td>
-                    <td>Read  <i class="material-icons moved">toggle_on</i></td>
-                    <td><button class="btn-delete"><i class="material-icons">delete</i></button></td>
-               </tr>
-               <tr>
-                    <td>LALALALALALALALALAnd</td>
-                    <td>Manuel J.Smith, Ph.D.</td>
-                    <td>Pages</td>
-                    <td>Read<i class="material-icons moved">toggle_on</i></td>
-                    <td><button class="btn-delete"><i class="material-icons">delete</i></button></td>
-                </tr>   
+               
             </table>
              </div>
         </div>

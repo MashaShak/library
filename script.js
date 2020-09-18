@@ -1,4 +1,5 @@
-
+const addForm = document.querySelector("#add-book");
+    
 const book1 = {
 title: "War and Peace",
 author: "Leo Tolstoy",
@@ -29,8 +30,18 @@ const book4 = {
 
 let mylibrary = [book1, book2, book3, book4];
 
-//displayBooks();
+displayBooks();
 displayListOfBooks();
+
+
+function showForm() {
+    addForm.style.display = (addForm.style.display == "none") ? "block" : "none";
+    
+    
+    //if (addBookForm.style.display == "none"): 
+    //    addBookForm.style.display = "block"?"none";
+    //} else addBookForm.style.display = "none";
+}
 
 function Book(title, author, pages, status){
     this.title = title
@@ -38,12 +49,6 @@ function Book(title, author, pages, status){
     this.pages = pages 
     this.isRead = status
 }
-
-
-function addBookToLibrary() {
-//add user input to library
-}
-
 //display all books, go through the array and show the book in the list from the end of the array
 function displayBooks(){
     const display = document.querySelector("#display");
@@ -62,7 +67,6 @@ function displayBooks(){
        
         })
 }
-
 function displayListOfBooks() {
     mylibrary.forEach(book => { 
         let tableBooks = document.querySelector("table");
@@ -80,12 +84,12 @@ function displayListOfBooks() {
         })
 }
 
-
-
+function addBookToLibrary() {
+    //add user input to library
+    }
 function addNewBook() {
     //make a form to enter the book, add it to mylibrary and display it
 }
-
 
 function isRead() {
 //change book status read/unread

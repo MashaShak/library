@@ -79,10 +79,6 @@ header {
     text-align: center;
     line-height: 70px;
 }
-.wrapper {
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
 .new-section {
     text-align: left;
     border-bottom: 1px solid white;
@@ -91,7 +87,10 @@ header {
 footer {
     background: white;
     line-height: 50px;
-
+}
+.wrapper {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 /* 
     TYPOGRAPHY
@@ -130,15 +129,17 @@ h2 {
 .material-icons.moved { transform : translateY(6px);}
 .material-icons.right {float:right; margin-left: 10px;}
 /* 
-    OTHERS: LINKS, INPUT, BUTTONS
+    OTHERS: LINKS, INPUT, BUTTONS, FORMS
 */
-a {
-    color: white;
-    text-decoration: none;
-    font-size: 24px;
-    padding: 20px 30px;
-    border: 1px solid white;
-    border-radius: 5px;
+.btn-add {
+  background-color: #293f50;
+  color: white;
+  font-size: 24px;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 20px 30px;
+  float: left;
+  outline: 2px solid white;
 }
 input {
     width: 400px;
@@ -149,8 +150,9 @@ input {
     border-radius: 5px;
     border: none;
 }
-#add-book{
-  background:#fffffff6;
+.forms{
+  display: none;
+  background: #fff;
   box-shadow: 0 2rem 2rem #00000080;
   min-height:200px;
   width:100%;
@@ -158,6 +160,7 @@ input {
   border-radius:3px;
   padding:20px;  
   color: black;
+  float: right;
 }
 
 
@@ -226,10 +229,10 @@ tr:last-child td{
   cursor: pointer;
   float: right;
 }
-
 .panel{
   display:none;
   margin-top: 40px;
+  animation: fadein .8s;
 }
 input[type="radio"] {
   display: none;
