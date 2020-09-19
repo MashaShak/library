@@ -16,9 +16,13 @@
                 <input type="text" name="title" id="title" placeholder="title"></br>
                 <input type="text" name="author" id="author" placeholder="author"></br>
                 <input type="number" name="pages" id="pages" placeholder="pages"></br>
-                <input type="radio" name="status" id="status"></br>
                 <label for="status">Have you read it?</label>
-                <button type="button">ADD</button>
+                <select name="status" id="status">
+                    <option value="Read" selected>Read</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Not Read">Not Read</option>
+                </select>
+                <button type="button" id="addNewBook">ADD</button>
             </form>
     </section>
    <section class="container">    
