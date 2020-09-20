@@ -1,5 +1,6 @@
 const form = document.querySelector("form");
 const display = document.querySelector("#display");
+const list = document.querySelector("#list");
 const table = document.querySelector("table");
 
 let mylibrary = localStorage.getItem("MyLibrary") ? JSON.parse(localStorage.getItem("MyLibrary")):[];
@@ -10,8 +11,6 @@ const data = JSON.parse(localStorage.getItem("MyLibrary"));
 function showForm() {
     form.style.display = (form.style.display == "block") ? "none" : "block";
 }
-
-function chooseGrid() {};
 
 function Book(title, author, pages, status){
     this.id = Date.now()
@@ -53,8 +52,8 @@ function displayList(book) {
         trBook.appendChild(tdBook);
         }
     }
-    trBook.appendChild(bookStatus());
-    trBook.appendChild(deleteBtn());
+    trBook.appendChild(changeStatus());
+    trBook.appendChild(deleteBook());
 }
 
 function update(button, parent) {
@@ -128,14 +127,25 @@ const addNewBook = (e) => {
     localStorage.setItem("MyLibrary", JSON.stringify(mylibrary));
 
     displayBook(newBook);
-    //displayList(newBook);
+    displayList(newBook);
     form.reset();
 }
 
 data.forEach((book) => {
     displayBook(book);
-    //displayList(book);
+    displayList(book);
 });
+
+
+function showGrid() {
+    list.style.display = "none";
+    display.style.display = "block";
+}
+function showList() {
+    list.style.display = "block";
+    display.style.display = "none";  
+}
+
 
 document.addEventListener("DOMContentLoaded", ()=> {
     document.querySelector("#addNewBook").addEventListener("click", addNewBook);

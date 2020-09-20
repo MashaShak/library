@@ -31,16 +31,16 @@
    -->  <section class="container col-main">   
             
         <div class="group new-section">
-            <button class="btn-style btn-icons tabs right"><i class="material-icons">list_alt</i></button> 
-            <button class="btn-style btn-icons tabs right"><i class="material-icons">apps</i></button>
+            <button onclick="showList()" class="btn-style btn-icons right"><i class="material-icons">list_alt</i></button> 
+            <button onclick="showGrid()" class="btn-style btn-icons right"><i class="material-icons">apps</i></button>
             <h2 >My Books</h2>
         </div>
         <div class="panels">
             <!-- GRID -->
             <div class="panel" id="display">  
             </div>
-            <!-- LIST 
-            <div class="panel" id="list">
+            <!-- LIST -->
+            <div class="panel" id="list" hidden>
             <table>
                <tr>
                     <th>Title</th>
@@ -52,7 +52,7 @@
                
             </table>
              </div>
-             -->
+            
         </div>
     </section>
     
