@@ -67,31 +67,41 @@ body {
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
+header {
+  background-color: white;
+  text-align: left;
+  line-height: 70px;
+}
+header,
 .container {
     margin: 0 auto;
-    width: 960px;
     padding-left: 30px;
     padding-right: 30px;
-    text-align: center;
 }
-header {
-    background-color: white;
-    text-align: center;
-    line-height: 70px;
+.col-side {
+  width: 30%;
 }
+.col-main {
+  width: 60%;
+}
+.col-side,
+.col-main {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 40px;
+}
+
 .new-section {
-    text-align: left;
     border-bottom: 1px solid white;
-    padding: 20px;
+    padding-bottom: 20px;
 }
+.right {float:right; margin-left: 10px;}
+
 footer {
     background: white;
     line-height: 50px;
 }
-.wrapper {
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
+
 /* 
     TYPOGRAPHY
 */
@@ -127,23 +137,39 @@ h2 {
 */
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.moved { transform : translateY(6px);}
-.material-icons.right {float:right; margin-left: 10px;}
 /* 
     OTHERS: LINKS, INPUT, BUTTONS, FORMS
 */
 .btn-add {
-  background-color: #293f50;
-  border: 1px solid white;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  float: left;
+  border: none;
+  border-bottom: 1px solid white;
   font-size: 24px;
-  padding: 20px 30px;  
+  padding: 10px 0;
 }
 .btn-delete {
-  background-color: none;
+  background-color: transparent;
   cursor: pointer;
+}
+
+.btn-style {
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+.btn-status {
+  font-size: 16px;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.btn-icons {
+  font-size: 10px;
+  border: none;
+}
+.icons {
+  width: 24px;
+  height: 24px;
 }
 
 input {
@@ -165,12 +191,8 @@ input {
   border-radius:3px;
   padding:20px;  
   color: black;
-  float: right;
 }
 
-.div-wrapper {
-
-}
 /*
     BOOKS LIST - TABLE
 */
@@ -226,25 +248,4 @@ tr:last-child td{
     font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;
-}
-
-/* 
-  TABS
-*/
-.tab{
-  cursor: pointer;
-  float: right;
-}
-.panel{
-  display:none;
-  margin-top: 40px;
-  animation: fadein .8s;
-}
-input[type="radio"] {
-  display: none;
-}
-#show-list:checked ~ .panels #list,
-#show-display:checked ~ .panels #display
-{
-  display: block;
 }

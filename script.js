@@ -11,8 +11,10 @@ function showForm() {
     form.style.display = (form.style.display == "block") ? "none" : "block";
 }
 
+function chooseGrid() {};
+
 function Book(title, author, pages, status){
-    this.id = Date.now();
+    this.id = Date.now()
     this.title = title
     this.author = author
     this.pages = pages 
@@ -31,9 +33,12 @@ function displayBook(book) {
                 const divKey = document.createElement("div");
                 divKey.textContent = book[key];
                 divBook.appendChild(divKey);
+                if (key == "isRead") {
+                    divBook.appendChild(changeStatus());
+                }
             }
         }
-    divBook.appendChild(deleteBtn());
+    divBook.appendChild(deleteBook());
 }
 
 function displayList(book) {
@@ -52,57 +57,60 @@ function displayList(book) {
     trBook.appendChild(deleteBtn());
 }
 
-function deleteBtn() {
+function update(button, parent) {
+    const parentId = parseFloat(parent.id);
+    let index = mylibrary.map(item => {return item.id;}).indexOf(parentId);
+    if (button.id == "change") { 
+        mylibrary[index]["isRead"] = status.innerHTML;     
+    } 
+    else if (button.id =="delete"){
+        mylibrary.splice(index, 1);
+        button.parentElement.remove();
+    }
+    localStorage.setItem("MyLibrary", JSON.stringify(mylibrary));
+}
+
+function deleteBook() {
     const button = document.createElement("button");
     button.classList.add("btn-delete");
+    button.id = "delete";
     button.innerHTML = "<img src='https://img.icons8.com/ios/30/000000/delete-forever.png'/>"; 
     button.addEventListener('click', function() {
+    //update(button, button.parentElement));
+    
         const parentId = parseFloat(button.parentElement.id);
-        let removeIndex = mylibrary.map(item => {return item.id;}).indexOf(parentId);
-        mylibrary.splice(removeIndex, 1);
+        let index = mylibrary.map(item => {return item.id;}).indexOf(parentId);
+        mylibrary.splice(index, 1);
         localStorage.setItem("MyLibrary", JSON.stringify(mylibrary));
         button.parentElement.remove();
     });
     return button;
 };
 
-function bookUpdate() {
-    const parentId = parseFloat(button.parentElement.id);
-    let Index = mylibrary.map(item => {return item.id;}).indexOf(parentId);
-        
-    mylibrary[removeIndex].status = "";    
-        
 
-    mylibrary.splice(Index, 1);
-    button.parentElement.remove();
-    localStorage.setItem("MyLibrary", JSON.stringify(mylibrary));
-}
     
 
-
-function bookStatus() {
+function changeStatus() {
     const button = document.createElement("button");
-    button.innerHTML = "Change";
-    const div = document.createElement("div");
-    div.classList.add = "div-wrapper";
-    div.style.display = "none;"
-    const btnRead = document.createElement("button");
-    btnRead.innerHTML = "Not Read";
-    const btnInProgress = document.createElement("button");
-    btnInProgress.innerHTML = "In Progress";
-    const btnFinished = document.createElement("button");
-    btnFinished.innerHTML = "Finished";
-    
-    div.appendChild(btnRead);
-    div.appendChild(btnInProgress);
-    div.appendChild(btnFinished);
-    
-    button.addEventListener('click',function() {
-        button.parentNode.appendChild(div);
-        div.style.display = (div.style.display == "block")? "none":"block";
-    });
+    button.innerHTML = "Change Status";
+    button.id = "change";
+    button.classList.add("btn-style", "btn-status");
+    button.addEventListener('click', function() {
+        let status = button.previousSibling;
+        if (status.innerHTML == "Read") status.innerHTML = "In Progress";
+        else if (status.innerHTML == "In Progress") status.innerHTML = "Not Read";
+        else status.innerHTML = "Read";
+        //update(button);
+        
+        let parentId = parseFloat(button.parentElement.id);
+        let index = mylibrary.map(item => {return item.id;}).indexOf(parentId);
+        mylibrary[index]["isRead"] = status.innerHTML;
+        localStorage.setItem("MyLibrary", JSON.stringify(mylibrary));
+
+    })
     return button;
 }
+
 
 const addNewBook = (e) => {
     e.preventDefault(); 
@@ -120,13 +128,13 @@ const addNewBook = (e) => {
     localStorage.setItem("MyLibrary", JSON.stringify(mylibrary));
 
     displayBook(newBook);
-    displayList(newBook);
+    //displayList(newBook);
     form.reset();
 }
 
 data.forEach((book) => {
     displayBook(book);
-    displayList(book);
+    //displayList(book);
 });
 
 document.addEventListener("DOMContentLoaded", ()=> {

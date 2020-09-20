@@ -10,8 +10,9 @@
     <header>
         <h1>My Library</h1>
     </header>
-    <section class="group container wrapper">
-        <button class="btn-add" type="button" onclick="showForm()">Add New Book <span class="material-icons moved">library_add</span></button>
+
+    <section class="group container col-side">
+        <button class="btn-add btn-style" type="button" onclick="showForm()">Add New Book <span class="material-icons moved">library_add</span></button>
         <form class="forms">
                 <input type="text" name="title" id="title" placeholder="title"></br>
                 <input type="text" name="author" id="author" placeholder="author"></br>
@@ -24,19 +25,21 @@
                 </select>
                 <button type="button" id="addNewBook">ADD</button>
             </form>
-    </section>
-   <section class="container">    
-        <input class="radio" id="show-list" name="group" type="radio" checked>
-        <input class="radio" id="show-display" name="group" type="radio">
-        <div class="group tabs new-section">
-            <label class="tab" for="show-list"><i class="material-icons right">list_alt</i></label>
-            <label class="tab" for="show-display"><i class="material-icons right">apps</i></label>
-            <h2>My Books</h2>
+    </section><!--
+        
+        BOOKS
+   -->  <section class="container col-main">   
+            
+        <div class="group new-section">
+            <button class="btn-style btn-icons tabs right"><i class="material-icons">list_alt</i></button> 
+            <button class="btn-style btn-icons tabs right"><i class="material-icons">apps</i></button>
+            <h2 >My Books</h2>
         </div>
         <div class="panels">
-            <div class="panel" id="display">
-                
+            <!-- GRID -->
+            <div class="panel" id="display">  
             </div>
+            <!-- LIST 
             <div class="panel" id="list">
             <table>
                <tr>
@@ -49,6 +52,7 @@
                
             </table>
              </div>
+             -->
         </div>
     </section>
     
