@@ -133,14 +133,19 @@ h2 {
 */
 .btn-add {
   background-color: #293f50;
-  color: white;
-  font-size: 24px;
   border: 1px solid white;
   border-radius: 5px;
-  padding: 20px 30px;
+  color: white;
+  cursor: pointer;
   float: left;
-  outline: 2px solid white;
+  font-size: 24px;
+  padding: 20px 30px;  
 }
+.btn-delete {
+  background-color: none;
+  cursor: pointer;
+}
+
 input {
     width: 400px;
     font-size: 20px;
@@ -151,7 +156,7 @@ input {
     border: none;
 }
 .forms{
-  display:
+  display: none;
   background: #fff;
   box-shadow: 0 2rem 2rem #00000080;
   min-height:200px;
@@ -163,7 +168,9 @@ input {
   float: right;
 }
 
+.div-wrapper {
 
+}
 /*
     BOOKS LIST - TABLE
 */
@@ -197,7 +204,6 @@ td:first-of-type {
 tr:last-child td{
     border-bottom: 0;
 }
-
 
 /*
     BOOKS GRID

@@ -1,112 +1,111 @@
-const addForm = document.querySelector("#add-book");
+const form = document.querySelector("form");
 const display = document.querySelector("#display");
-const tableBooks = document.querySelector("table");
-let mylibrary = [];
-/*    
-const book1 = {
-title: "War and Peace",
-author: "Leo Tolstoy",
-pages: 569,
-status: "read",
-}
-const book2 = {
-    title: "Little Prince",
-    author: "Antoine de Saint-Exupéry",
-    pages: 234,
-    status: "not read",
-}
-const book3 = {
-    title: "Little Prince",
-    author: "Antoine de Saint-Exupéry",
-    pages: 234,
-    status: " not read",
-}
-const book4 = {
-    title: "Little Prince",
-    author: "Antoine de Saint-Exupéry",
-    pages: 234,
-    status: "read",
-}
-let mylibrary = [book1, book2, book3, book4];
-*/
+const table = document.querySelector("table");
 
+let mylibrary = localStorage.getItem("MyLibrary") ? JSON.parse(localStorage.getItem("MyLibrary")):[];
 
-
+localStorage.setItem("MyLibrary", JSON.stringify(mylibrary));
+const data = JSON.parse(localStorage.getItem("MyLibrary"));
 
 function showForm() {
-    addForm.style.display = (addForm.style.display == "none") ? "block" : "none";
+    form.style.display = (form.style.display == "block") ? "none" : "block";
 }
 
 function Book(title, author, pages, status){
+    this.id = Date.now();
     this.title = title
     this.author = author
     this.pages = pages 
     this.isRead = status
 }
-/*display all books, go through the array and show the book in the list from the end of the array
-function displayBooks(){
-    mylibrary.forEach(book => {
-        let divBook = document.createElement("div"); 
-        const btnDeleteBook = document.createElement("button");
-        btnDeleteBook.innerHTML = "<img src='https://img.icons8.com/ios/30/000000/delete-forever.png'/>";
-        display.appendChild(divBook);
-        divBook.classList.add("card");
-        for (let key in book) {
-            let divKey = document.createElement("div");
-            divKey.textContent = book[key];
-            divBook.appendChild(divKey);
-        }
-        divBook.appendChild(btnDeleteBook);
-        })
-}
-function displayListOfBooks() {
-    mylibrary.forEach(book => { 
-        
-        let trBook = document.createElement("tr");
-        tableBooks.appendChild(trBook);
-        const btnDeleteBook = document.createElement("button");
-        btnDeleteBook.innerHTML = "<img src='https://img.icons8.com/ios/30/000000/delete-forever.png'/>";
-        for (let key in book) {
-            const tdBook = document.createElement("td");
-            tdBook.textContent = book[key];
-            trBook.appendChild(tdBook);
-        }
-        trBook.appendChild(btnDeleteBook);
-        
-        })
-}
-*/
+
 
 function displayBook(book) {
-    let divBook = document.createElement("div"); 
+    const divBook = document.createElement("div"); 
     divBook.classList.add("card");
-    const btnDeleteBook = document.createElement("button");
-    btnDeleteBook.innerHTML = "<img src='https://img.icons8.com/ios/30/000000/delete-forever.png'/>";
     display.appendChild(divBook);
     for (let key in book) {
-            let divKey = document.createElement("div");
-            divKey.textContent = book[key];
-            divBook.appendChild(divKey);
+            if (key == "id") {
+                divBook.id = book[key];
+            } else { 
+                const divKey = document.createElement("div");
+                divKey.textContent = book[key];
+                divBook.appendChild(divKey);
+            }
         }
-    divBook.appendChild(btnDeleteBook);
+    divBook.appendChild(deleteBtn());
 }
 
-function displayListOfBooks(book) {
-    let trBook = document.createElement("tr");
-    tableBooks.appendChild(trBook);        
-    const btnDeleteBook = document.createElement("button");
-    btnDeleteBook.innerHTML = "<img src='https://img.icons8.com/ios/30/000000/delete-forever.png'/>";
+function displayList(book) {
+    const trBook = document.createElement("tr");
+    table.appendChild(trBook);        
     for (let key in book) {
+        if (key == "id") {
+            trBook.id = book[key];
+        } else { 
         const tdBook = document.createElement("td");
         tdBook.textContent = book[key];
         trBook.appendChild(tdBook);
+        }
     }
-    trBook.appendChild(btnDeleteBook);
+    trBook.appendChild(bookStatus());
+    trBook.appendChild(deleteBtn());
 }
 
+function deleteBtn() {
+    const button = document.createElement("button");
+    button.classList.add("btn-delete");
+    button.innerHTML = "<img src='https://img.icons8.com/ios/30/000000/delete-forever.png'/>"; 
+    button.addEventListener('click', function() {
+        const parentId = parseFloat(button.parentElement.id);
+        let removeIndex = mylibrary.map(item => {return item.id;}).indexOf(parentId);
+        mylibrary.splice(removeIndex, 1);
+        localStorage.setItem("MyLibrary", JSON.stringify(mylibrary));
+        button.parentElement.remove();
+    });
+    return button;
+};
+
+function bookUpdate() {
+    const parentId = parseFloat(button.parentElement.id);
+    let Index = mylibrary.map(item => {return item.id;}).indexOf(parentId);
+        
+    mylibrary[removeIndex].status = "";    
+        
+
+    mylibrary.splice(Index, 1);
+    button.parentElement.remove();
+    localStorage.setItem("MyLibrary", JSON.stringify(mylibrary));
+}
+    
+
+
+function bookStatus() {
+    const button = document.createElement("button");
+    button.innerHTML = "Change";
+    const div = document.createElement("div");
+    div.classList.add = "div-wrapper";
+    div.style.display = "none;"
+    const btnRead = document.createElement("button");
+    btnRead.innerHTML = "Not Read";
+    const btnInProgress = document.createElement("button");
+    btnInProgress.innerHTML = "In Progress";
+    const btnFinished = document.createElement("button");
+    btnFinished.innerHTML = "Finished";
+    
+    div.appendChild(btnRead);
+    div.appendChild(btnInProgress);
+    div.appendChild(btnFinished);
+    
+    button.addEventListener('click',function() {
+        button.parentNode.appendChild(div);
+        div.style.display = (div.style.display == "block")? "none":"block";
+    });
+    return button;
+}
 
 const addNewBook = (e) => {
-    e.preventDefault(); //prevent form from submitting
+    e.preventDefault(); 
     
     let newBook = new Book(
         document.querySelector("#title").value,
@@ -116,16 +115,20 @@ const addNewBook = (e) => {
     );
     mylibrary.push(newBook);
     console.log(mylibrary);
-    addForm.reset();
-    displayBook(newBook);
-    displayListOfBooks(newBook);
     
     //local storage
     localStorage.setItem("MyLibrary", JSON.stringify(mylibrary));
+
+    displayBook(newBook);
+    displayList(newBook);
+    form.reset();
 }
+
+data.forEach((book) => {
+    displayBook(book);
+    displayList(book);
+});
 
 document.addEventListener("DOMContentLoaded", ()=> {
     document.querySelector("#addNewBook").addEventListener("click", addNewBook);
 });
-
-
