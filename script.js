@@ -8,6 +8,8 @@ let mylibrary = localStorage.getItem("MyLibrary") ? JSON.parse(localStorage.getI
 localStorage.setItem("MyLibrary", JSON.stringify(mylibrary));
 const data = JSON.parse(localStorage.getItem("MyLibrary"));
 
+
+
 function showForm() {
     form.style.display = (form.style.display == "block") ? "none" : "block";
 }
@@ -56,27 +58,11 @@ function displayList(book) {
     trBook.appendChild(deleteBook());
 }
 
-function update(button, parent) {
-    const parentId = parseFloat(parent.id);
-    let index = mylibrary.map(item => {return item.id;}).indexOf(parentId);
-    if (button.id == "change") { 
-        mylibrary[index]["isRead"] = status.innerHTML;     
-    } 
-    else if (button.id =="delete"){
-        mylibrary.splice(index, 1);
-        button.parentElement.remove();
-    }
-    localStorage.setItem("MyLibrary", JSON.stringify(mylibrary));
-}
-
 function deleteBook() {
     const button = document.createElement("button");
-    button.classList.add("btn-delete");
-    button.id = "delete";
-    button.innerHTML = "<img src='https://img.icons8.com/ios/30/000000/delete-forever.png'/>"; 
+    button.classList.add("btn-icons");
+    button.innerHTML = '<i class="material-icons">delete</i>'; 
     button.addEventListener('click', function() {
-    //update(button, button.parentElement));
-    
         const parentId = parseFloat(button.parentElement.id);
         let index = mylibrary.map(item => {return item.id;}).indexOf(parentId);
         mylibrary.splice(index, 1);
@@ -91,16 +77,13 @@ function deleteBook() {
 
 function changeStatus() {
     const button = document.createElement("button");
-    button.innerHTML = "Change Status";
-    button.id = "change";
+    button.innerHTML = "Change";
     button.classList.add("btn-style", "btn-status");
     button.addEventListener('click', function() {
         let status = button.previousSibling;
         if (status.innerHTML == "Read") status.innerHTML = "In Progress";
         else if (status.innerHTML == "In Progress") status.innerHTML = "Not Read";
         else status.innerHTML = "Read";
-        //update(button);
-        
         let parentId = parseFloat(button.parentElement.id);
         let index = mylibrary.map(item => {return item.id;}).indexOf(parentId);
         mylibrary[index]["isRead"] = status.innerHTML;
@@ -109,7 +92,6 @@ function changeStatus() {
     })
     return button;
 }
-
 
 const addNewBook = (e) => {
     e.preventDefault(); 
@@ -121,11 +103,7 @@ const addNewBook = (e) => {
         document.querySelector("#status").value
     );
     mylibrary.push(newBook);
-    console.log(mylibrary);
-    
-    //local storage
     localStorage.setItem("MyLibrary", JSON.stringify(mylibrary));
-
     displayBook(newBook);
     displayList(newBook);
     form.reset();

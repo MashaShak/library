@@ -12,29 +12,40 @@
     </header>
 
     <section class="group container col-side">
-        <button class="btn-add btn-style" type="button" onclick="showForm()">Add New Book <span class="material-icons moved">library_add</span></button>
+        <button class="btn-style" type="button" onclick="showForm()">Add New Book <span class="material-icons moved">library_add</span></button>
         <form class="forms">
-                <input type="text" name="title" id="title" placeholder="title"></br>
-                <input type="text" name="author" id="author" placeholder="author"></br>
-                <input type="number" name="pages" id="pages" placeholder="pages"></br>
-                <label for="status">Have you read it?</label>
-                <select name="status" id="status">
-                    <option value="Read" selected>Read</option>
-                    <option value="In Progress">In Progress</option>
-                    <option value="Not Read">Not Read</option>
-                </select>
-                <button type="button" id="addNewBook">ADD</button>
-            </form>
+            <label>Book Title:<br>
+                <input type="text" name="title" id="title"></br>
+            </label>
+            <label>Author:<br>
+                <input type="text" name="author" id="author"></br>
+            <label>Pages:<br>
+                <input type="number" name="pages" id="pages"></br>
+            </label>
+            <label for="status">Have you read it?</label><br>
+            <select name="status" id="status">
+                <option value="Read" selected>Read</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Not Read">Not Read</option>                
+            </select>
+            <button type="button" class="btn-style btn-left" id="addNewBook">Add</button>
+        </form>
     </section><!--
         
         BOOKS
-   -->  <section class="container col-main">   
-            
-        <div class="group new-section">
-            <button onclick="showList()" class="btn-style btn-icons right"><i class="material-icons">list_alt</i></button> 
-            <button onclick="showGrid()" class="btn-style btn-icons right"><i class="material-icons">apps</i></button>
+   -->  <section class="col-main">   
+     
+        <div class="box">
             <h2 >My Books</h2>
-        </div>
+            <div>Read</div>
+            <div>In progress</div>
+            <div>Finished
+            </div>
+            <div>
+                <button onclick="showList()" class="btn-icons "><i class="material-icons">list_alt</i></button> 
+                <button onclick="showGrid()" class="btn-icons "><i class="material-icons">apps</i></button>
+            </div>
+            </div>
         <div class="panels">
             <!-- GRID -->
             <div class="panel" id="display">  
@@ -46,7 +57,7 @@
                     <th>Title</th>
                     <th>Author</th>
                     <th>Pages</th>
-                    <th>Status</th>
+                    <th colspan="2">Status</th>
                     <th>delete</th>
                </tr>
                

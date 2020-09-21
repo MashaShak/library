@@ -50,8 +50,8 @@ table {
   ========================================
 */
 body {
-   background-color: #fff;
-    color: #212529;
+    background: #293f50;
+    color: #fff;
     font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   
@@ -68,10 +68,9 @@ body {
           box-sizing: border-box;
 }
 header {
-  text-align: left;
-  line-height: 50px;
   background-color: white;
-  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+  text-align: left;
+  line-height: 70px;
 }
 header,
 .container {
@@ -81,19 +80,15 @@ header,
 }
 .col-side {
   width: 30%;
-  
-  
 }
 .col-main {
   width: 60%;
-  
 }
 .col-side,
 .col-main {
   display: inline-block;
   vertical-align: top;
-  padding-top: 40px;
-  min-height: 100%;
+  margin-top: 40px;
 }
 
 .new-section {
@@ -120,12 +115,11 @@ footer {
 h1 {
     font-size: 36px;
     letter-spacing: 1.5px;
-    
+    color: #888
 }
 h2 {
     font-size: 24px;
     font-weight: 500;
-    
 }
 
 /*
@@ -153,46 +147,69 @@ h2 {
 /* 
     OTHERS: LINKS, INPUT, BUTTONS, FORMS
 */
+.btn-add {
+  border: none;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: 24px;
+  padding: 20px;
+}
+.btn-form {
+  padding: 10px 20px;
+  background: #293f50;
+  color: white;
+  border-radius: 5px;
+}
+.btn-delete {
+  background-color: transparent;
+  cursor: pointer;
+}
 
 .btn-style {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 25px;
+  background-color: transparent;
+  color: #fff;
   cursor: pointer;
-  font-size: 24px;
-  padding: 10px 30px;
 }
 .btn-status {
   font-size: 16px;
-}
-.btn-left {
-  float: right;
-}
-.btn-icons {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  float: right;
-}
-.forms{
-  background: transparent;
-  border-radius: 3px;
-  box-shadow: 0 2rem 2rem #00000080;
-  font-size: 18px;
-  margin-top: 40px;
-  padding: 25px;  
-  width: 100%;
-}
-input, select {
-  border: 1px solid grey;;
+  border: 1px solid white;
   border-radius: 5px;
-  line-height: 24px;
-  margin: 5px 0 30px 0;
   padding: 5px;
-  width: 100%;
 }
 
+.btn-icons {
+  font-size: 10px;
+  border: none;
+}
+.icons {
+  width: 24px;
+  height: 24px;
+}
+label {
+    font-size: 20px;
+    line-height: 24px;
+    padding: 5px;
+    margin: 5px;
+}
+input, select {
+    font-size: 20px;
+    line-height: 24px;
+    padding: 5px;
+    margin: 20px 5px;
+    border-radius: 5px;
+    border: 1px solid grey;;
+}
+.forms{
+  
+  background: transparent;
+  box-shadow: 0 2rem 2rem #00000080;
+  min-height:200px;
+  width:100%;
+  border-radius:3px;
+  padding:20px;  
+  margin-top: 40px;
+  color: white;
+}
 
 /*
     BOOKS LIST - TABLE
@@ -204,16 +221,10 @@ table {
     margin: auto;
   }
 th {
-    background-color: rgb(247, 247, 247);;
-    color: black;
-    font-size: 18px;
-    text-align: left;
-    
+    background-color: lightblue;
+    color: #293f50;
+    font-size: 20px;
 }
-th[colspan="2"] {
-  text-align: center;
-}
-
 th:first-child {
     border-top-left-radius: 10px;
 }
@@ -239,15 +250,13 @@ tr:last-child td{
 */
 .card {
     display: inline-block;
-    border: none;
-    box-shadow: 0 .25rem .5rem #00000080;
-    border-radius: 3px;
+    border: 1px solid white;
+    border-radius: 5px;
     width: 200px;
     height: 250px;
     padding: 20px 0;
     margin: 0 10px 10px 10px;
     vertical-align: top;
-    text-align: center;
 
 }
 .card div {
