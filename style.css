@@ -51,8 +51,7 @@ table {
 */
 body {
    background-color: #fff;
-    color: #212529;
-    font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 300 16px/22px "Roboto", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   
 /*
@@ -68,10 +67,11 @@ body {
           box-sizing: border-box;
 }
 header {
-  text-align: left;
-  line-height: 50px;
-  background-color: white;
   box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+  font-weight: 500;
+  line-height: 50px;
+  text-align: left;
+  
 }
 header,
 .container {
@@ -80,32 +80,31 @@ header,
     padding-right: 30px;
 }
 .col-side {
-  width: 30%;
+    width: 30%;
   
   
 }
 .col-main {
-  width: 60%;
+    width: 60%;
   
 }
 .col-side,
 .col-main {
-  display: inline-block;
-  vertical-align: top;
-  padding-top: 40px;
-  min-height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 40px;
+    min-height: 100%;
 }
-
 .new-section {
     border-bottom: 1px solid white;
     padding-bottom: 20px;
     margin-bottom: 20px;
 }
 .box {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-   border-bottom: 1px solid white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
     padding-bottom: 20px;
     margin-bottom: 20px;
 }
@@ -113,21 +112,20 @@ footer {
     background: white;
     line-height: 50px;
 }
-
+#list {
+    display: none;
+}
 /* 
     TYPOGRAPHY
 */
 h1 {
     font-size: 36px;
     letter-spacing: 1.5px;
-    
 }
 h2 {
     font-size: 24px;
     font-weight: 500;
-    
 }
-
 /*
   ========================================
   Clearfix
@@ -155,27 +153,29 @@ h2 {
 */
 
 .btn-style {
-  background-color: #007bff;
+  background-color: #f3722c;
   color: white;
   border: none;
-  border-radius: 25px;
+  border-radius: 3px;
   cursor: pointer;
   font-size: 24px;
   padding: 10px 30px;
 }
 .btn-status {
+  margin-top: 5px;
+  background-color: lightgrey;
   font-size: 16px;
 }
-.btn-left {
+.btn-right {
   float: right;
 }
 .btn-icons {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  float: right;
 }
-.forms{
+.forms {
+  display: none;
   background: transparent;
   border-radius: 3px;
   box-shadow: 0 2rem 2rem #00000080;
@@ -203,16 +203,6 @@ table {
     width: 100%;
     margin: auto;
   }
-th {
-    background-color: rgb(247, 247, 247);;
-    color: black;
-    font-size: 18px;
-    text-align: left;
-    
-}
-th[colspan="2"] {
-  text-align: center;
-}
 
 th:first-child {
     border-top-left-radius: 10px;
@@ -222,13 +212,13 @@ th:last-child {
 }
 th,td {
     border-bottom: 1px solid #cecfd5;
-    padding: 10px 15px;
+    padding: 20px 15px;
 }
 td:first-of-type {
     text-align: left;
     font-size: 16px;
     font-weight: 700;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 tr:last-child td{
     border-bottom: 0;
@@ -239,16 +229,16 @@ tr:last-child td{
 */
 .card {
     display: inline-block;
+    position: relative;
     border: none;
     box-shadow: 0 .25rem .5rem #00000080;
     border-radius: 3px;
     width: 200px;
-    height: 250px;
+    min-height: 250px;
     padding: 20px 0;
     margin: 0 10px 10px 10px;
     vertical-align: top;
     text-align: center;
-
 }
 .card div {
     padding: 5px;
@@ -256,5 +246,11 @@ tr:last-child td{
 .card div:first-child {
     font-size: 16px;
     font-weight: 700;
-    text-transform: uppercase;
+    text-transform: capitalize;
+    padding-top: 5px;
+}
+.card button:last-child {
+  position: absolute;
+  top: 6px;
+  right: 0;
 }

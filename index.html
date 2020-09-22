@@ -28,7 +28,7 @@
                 <option value="In Progress">In Progress</option>
                 <option value="Not Read">Not Read</option>                
             </select>
-            <button type="button" class="btn-style btn-left" id="addNewBook">Add</button>
+            <button type="button" class="btn-style btn-right" id="addNewBook">Add</button>
         </form>
     </section><!--
         
@@ -36,30 +36,24 @@
    -->  <section class="col-main">   
      
         <div class="box">
-            <h2 >My Books</h2>
-            <div>Read</div>
-            <div>In progress</div>
-            <div>Finished
-            </div>
+            <h2 >Books</h2>
+            <div id="all"></div>
             <div>
                 <button onclick="showList()" class="btn-icons "><i class="material-icons">list_alt</i></button> 
                 <button onclick="showGrid()" class="btn-icons "><i class="material-icons">apps</i></button>
             </div>
-            </div>
+        </div>
         <div class="panels">
             <!-- GRID -->
             <div class="panel" id="display">  
             </div>
             <!-- LIST -->
-            <div class="panel" id="list" hidden>
+            <div class="panel" id="list">
             <table>
-               <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Pages</th>
-                    <th colspan="2">Status</th>
-                    <th>delete</th>
-               </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
                
             </table>
              </div>

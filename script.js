@@ -2,12 +2,16 @@ const form = document.querySelector("form");
 const display = document.querySelector("#display");
 const list = document.querySelector("#list");
 const table = document.querySelector("table");
+const tbody = document.querySelector("tbody");
 
 let mylibrary = localStorage.getItem("MyLibrary") ? JSON.parse(localStorage.getItem("MyLibrary")):[];
 
 localStorage.setItem("MyLibrary", JSON.stringify(mylibrary));
-const data = JSON.parse(localStorage.getItem("MyLibrary"));
 
+const data = JSON.parse(localStorage.getItem("MyLibrary"));
+data.forEach((book) => {
+        displayBook(book); 
+});
 
 
 function showForm() {
@@ -30,9 +34,11 @@ function displayBook(book) {
     for (let key in book) {
             if (key == "id") {
                 divBook.id = book[key];
-            } else { 
+            } else {  
                 const divKey = document.createElement("div");
-                divKey.textContent = book[key];
+                if (key =="author") divKey.textContent = "by ";
+                divKey.textContent += book[key];
+                if (key == "pages") divKey.textContent += " pages";
                 divBook.appendChild(divKey);
                 if (key == "isRead") {
                     divBook.appendChild(changeStatus());
@@ -44,13 +50,15 @@ function displayBook(book) {
 
 function displayList(book) {
     const trBook = document.createElement("tr");
-    table.appendChild(trBook);        
+    tbody.appendChild(trBook);        
     for (let key in book) {
         if (key == "id") {
             trBook.id = book[key];
         } else { 
         const tdBook = document.createElement("td");
-        tdBook.textContent = book[key];
+        if (key == "author") tdBook.textContent = "by ";
+        tdBook.textContent += book[key];
+        if (key == "pages") tdBook.textContent += " pages";
         trBook.appendChild(tdBook);
         }
     }
@@ -63,39 +71,35 @@ function deleteBook() {
     button.classList.add("btn-icons");
     button.innerHTML = '<i class="material-icons">delete</i>'; 
     button.addEventListener('click', function() {
-        const parentId = parseFloat(button.parentElement.id);
-        let index = mylibrary.map(item => {return item.id;}).indexOf(parentId);
+        let index = mylibrary.findIndex(item => item.id == parseFloat(button.parentElement.id));
         mylibrary.splice(index, 1);
         localStorage.setItem("MyLibrary", JSON.stringify(mylibrary));
         button.parentElement.remove();
+        countBooks();
     });
     return button;
 };
-
-
-    
+   
 
 function changeStatus() {
     const button = document.createElement("button");
-    button.innerHTML = "Change";
+    button.innerHTML = "Change Status";
     button.classList.add("btn-style", "btn-status");
     button.addEventListener('click', function() {
         let status = button.previousSibling;
         if (status.innerHTML == "Read") status.innerHTML = "In Progress";
         else if (status.innerHTML == "In Progress") status.innerHTML = "Not Read";
         else status.innerHTML = "Read";
-        let parentId = parseFloat(button.parentElement.id);
-        let index = mylibrary.map(item => {return item.id;}).indexOf(parentId);
+        let index = mylibrary.findIndex(item => item.id == parseFloat(button.parentElement.id));
         mylibrary[index]["isRead"] = status.innerHTML;
         localStorage.setItem("MyLibrary", JSON.stringify(mylibrary));
-
+        countBooks();
     })
     return button;
 }
 
 const addNewBook = (e) => {
     e.preventDefault(); 
-    
     let newBook = new Book(
         document.querySelector("#title").value,
         document.querySelector("#author").value,
@@ -106,25 +110,52 @@ const addNewBook = (e) => {
     localStorage.setItem("MyLibrary", JSON.stringify(mylibrary));
     displayBook(newBook);
     displayList(newBook);
+    countBooks();
     form.reset();
 }
 
-data.forEach((book) => {
-    displayBook(book);
-    displayList(book);
-});
 
-
+function renderGrid() {
+    while (tbody.firstChild) {
+        tbody.removeChild(tbody.firstChild)
+    }
+    mylibrary.forEach((book) => {
+        displayBook(book); 
+    });
+}
+function renderList() {
+    while (display.firstChild) {
+        display.removeChild(display.firstChild)
+    }
+    mylibrary.forEach((book) => {
+        displayList(book);    
+    });
+}
 function showGrid() {
-    list.style.display = "none";
-    display.style.display = "block";
+    if (display.style.display == "none") {
+        list.style.display = "none";    
+        display.style.display = "block";
+        renderGrid();
+    }
 }
 function showList() {
-    list.style.display = "block";
-    display.style.display = "none";  
+    if (list.style.display != "block") {
+        display.style.display = "none";
+        list.style.display = "block"; 
+        renderList();
+    }
 }
 
 
+
+function countBooks() {
+    let read = mylibrary.filter(item => item.isRead == "Not Read").length;
+    let inProgress = mylibrary.filter(item => item.isRead == "In Progress").length;
+    let finished = mylibrary.filter(item => item.isRead == "Read").length;
+    document.querySelector("#all").innerHTML = `${read} Not Read  &middot;  ${inProgress} In Progress  &middot;  ${finished} Finishied`; 
+}
+
+countBooks();
 document.addEventListener("DOMContentLoaded", ()=> {
     document.querySelector("#addNewBook").addEventListener("click", addNewBook);
 });
