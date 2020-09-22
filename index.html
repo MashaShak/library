@@ -7,13 +7,13 @@
       rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>My Library</h1>
+    <header class="gradient">
+        <h1>MY LIBRARY</h1>
     </header>
 
     <section class="group container col-side">
-        <button class="btn-style" type="button" onclick="showForm()">Add New Book <span class="material-icons moved">library_add</span></button>
-        <form class="forms">
+        <button class=" btn-style" type="button" onclick="showForm()">ADD NEW BOOK <span class="material-icons moved">library_add</span></button>
+        <form class="group forms">
             <label>Book Title:<br>
                 <input type="text" name="title" id="title"></br>
             </label>
@@ -28,7 +28,7 @@
                 <option value="In Progress">In Progress</option>
                 <option value="Not Read">Not Read</option>                
             </select>
-            <button type="button" class="btn-style btn-right" id="addNewBook">Add</button>
+            <button type="button" class=" btn-style" id="addNewBook">ADD TO LIBRARY</button>
         </form>
     </section><!--
         
@@ -36,7 +36,7 @@
    -->  <section class="col-main">   
      
         <div class="box">
-            <h2 >Books</h2>
+            <h2 >BOOKS</h2>
             <div id="all"></div>
             <div>
                 <button onclick="showList()" class="btn-icons "><i class="material-icons">list_alt</i></button> 
@@ -61,7 +61,8 @@
         </div>
     </section>
     
-    <footer></footer>
+    <footer>
+    </footer>
     <script src="script.js"></script>
 </body>
 

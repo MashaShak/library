@@ -50,7 +50,7 @@ table {
   ========================================
 */
 body {
-   background-color: #fff;
+  background-color: #fff;
   font: 300 16px/22px "Roboto", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   
@@ -81,18 +81,19 @@ header,
 }
 .col-side {
     width: 30%;
-  
+    padding-top: 30px;
+    
   
 }
 .col-main {
-    width: 60%;
+    width: 65%;
+    padding-top: 45px;
   
 }
 .col-side,
 .col-main {
     display: inline-block;
     vertical-align: top;
-    padding-top: 40px;
     min-height: 100%;
 }
 .new-section {
@@ -111,19 +112,27 @@ header,
 footer {
     background: white;
     line-height: 50px;
+    
 }
 #list {
     display: none;
+}
+.gradient {
+    background: #cbe2c1;
+    background: -webkit-linear-gradient(to right, #cbe2c1, #f6f1d3);
+    background: -moz-linear-gradient(to right, #cbe2c1, #f6f1d3);
+    background: linear-gradient(to right, #cbe2c1, #f6f1d3);
 }
 /* 
     TYPOGRAPHY
 */
 h1 {
-    font-size: 36px;
+    font-size: 24px;
     letter-spacing: 1.5px;
+    color: #293f50;
 }
 h2 {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 500;
 }
 /*
@@ -147,41 +156,54 @@ h2 {
     ICONS
 */
 .material-icons.md-18 { font-size: 18px; }
-.material-icons.moved { transform : translateY(6px);}
 /* 
     OTHERS: LINKS, INPUT, BUTTONS, FORMS
 */
 
+#all {
+  color:#888;
+  font-size: 14px;
+  font-weight: 400;
+}
+
 .btn-style {
-  background-color: #f3722c;
+  background-color: #3a506b;
   color: white;
   border: none;
   border-radius: 3px;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 18px;
   padding: 10px 30px;
+  outline: none;
 }
 .btn-status {
   margin-top: 5px;
   background-color: lightgrey;
+  color: #000;
   font-size: 16px;
 }
-.btn-right {
-  float: right;
+
+.btn-style:hover,
+.btn-status:hover {
+  box-shadow: 0 .25rem .25rem #00000080;
 }
 .btn-icons {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  outline: none;
 }
 .forms {
   display: none;
-  background: transparent;
+  background: white;
   border-radius: 3px;
   box-shadow: 0 2rem 2rem #00000080;
   font-size: 18px;
   margin-top: 40px;
   padding: 25px;  
+  width: 100%;
+}
+.forms button {
   width: 100%;
 }
 input, select {
@@ -216,7 +238,7 @@ th,td {
 }
 td:first-of-type {
     text-align: left;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     text-transform: capitalize;
 }
@@ -227,6 +249,7 @@ tr:last-child td{
 /*
     BOOKS GRID
 */
+
 .card {
     display: inline-block;
     position: relative;
@@ -241,13 +264,26 @@ tr:last-child td{
     text-align: center;
 }
 .card div {
-    padding: 5px;
+    padding: 2px;
 }
 .card div:first-child {
     font-size: 16px;
     font-weight: 700;
     text-transform: capitalize;
-    padding-top: 5px;
+    margin-top: 10px;
+}
+.card div:last-of-type {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+}
+.card button:first-of-type {
+  position: absolute; 
+  bottom: 15px;
+  left: 15x;
+  right: 15px;
+  
 }
 .card button:last-child {
   position: absolute;
