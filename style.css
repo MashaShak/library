@@ -215,8 +215,10 @@ a:hover {
 }
 
 .btn {
-  /*background-color: #3a506b;*/
-  background: linear-gradient(#49708f, #293f50);
+  color: #3a506b;
+  border: 2px solid #3a506b;
+  background-color: #fff;
+  /*background: linear-gradient(#49708f, #293f50);*/
   color: white;
   border: none;
   border-radius: 3px;
@@ -229,10 +231,16 @@ a:hover {
   font-size: 16px;
 }
 .btn-cancel {
-  background: linear-gradient(red, rgb(117, 9, 9));
+  /*background: linear-gradient(red, rgb(117, 9, 9));*/
+  background-color: #fff;
+  border: 2px solid  #f07167;
+  color: #f07167;
 }
 .btn-status {
   font-size: 16px;
+  border: none;
+  background-color: #3a506b;
+  color: #fff;
 }
 .btn:hover,
 .btn-status:hover {
