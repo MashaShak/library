@@ -219,15 +219,13 @@ a:hover {
   border: 2px solid #3a506b;
   background-color: #fff;
   /*background: linear-gradient(#49708f, #293f50);*/
-  color: white;
-  border: none;
   border-radius: 3px;
   cursor: pointer;
   font-size: 18px;
   padding: 10px 20px;
   outline: none;
 }
-.forms button {
+.form button {
   font-size: 16px;
 }
 .btn-cancel {
