@@ -74,7 +74,7 @@ function btnChangeStatus() {
     return button;
 }
 
-function displayBooks(parent = display, element = "div", child = "div", book) {
+function displayBooks(parent, element, child, book) {
     const el = document.createElement(element);
     parent.appendChild(el);    
     if (parent == display) el.classList.add("card");
@@ -101,8 +101,7 @@ function countBooks() {
 }
 
 const addNewBook = (e) => {
-    e.preventDefault(); 
-    //need to add validation here 
+    e.preventDefault();
     let newBook = new Book(
         document.querySelector("#title").value,
         document.querySelector("#author").value,
@@ -111,7 +110,7 @@ const addNewBook = (e) => {
     );
     mylibrary.push(newBook);
     saveToStorage();
-    displayBooks(); 
+    displayBooks(display, "div", "div", newBook); 
     displayBooks(tbody, "tr", "td", newBook);
     countBooks();
     form.reset();

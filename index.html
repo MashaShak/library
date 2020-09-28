@@ -15,13 +15,42 @@
             <h1>Your dream library is here!</h1><br>
             <p>The books you read and loved,</p> 
             <p>...the books you just want to read,</p>
-            <p>...and the ones someone recommended you a while ago, but you never managed to read it!</p>
+            <p>...and the ones someone recommended you a while ago, but you never managed to read them!</p>
             <br>
             <h3>Now all in one place!</h3>
         </div>
         <button class="btn-new" type="button" onclick="startLibrary()">Start here!</button>
     </section>
     <section class="main" hidden>    
+       <!--
+        FORM
+    --><section class="group container col-side">
+        <div class="right">
+            <button id="show-form" class="btn-new" type="button" onclick="showForm()" hidden>Add New Book <span class="material-icons moved">library_add</span></button>
+        </div>
+        
+        <form class="group form">
+            <label>Book Title:<br>
+                <input type="text" name="title" id="title" required></br>
+            </label>
+            <label>Author:<br>
+                <input type="text" name="author" id="author" required></br>
+            <label>Pages:<br>
+                <input type="number" name="pages" id="pages"></br>
+            </label>
+            <label for="status">Have you read it?</label><br>
+            <select name="status" id="status">
+                <option value="Read" selected>Read</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Not Read">Not Read</option>                
+            </select>
+            <div class="right">
+                <button type="submit" class="btn" id="addNewBook">Save book</button>
+                <button type="button" class="btn btn-cancel" onclick="hideForm()">Cancel</button>
+            </div>
+        </form>
+
+        </section>
         <section class="col-main">   
             <div class="box">
                 <h2>BOOKS</h2>
@@ -40,34 +69,6 @@
                         <tbody></tbody>
                     </table>
                 </div>
-        </section><!--
-        FORM
-    --><section class="group container col-side">
-        <div class="right">
-            <button id="show-form" class="btn-new" type="button" onclick="showForm()" hidden>Add New Book <span class="material-icons moved">library_add</span></button>
-        </div>
-        
-        <form class="group form">
-            <label>Book Title:<br>
-                <input type="text" name="title" id="title"></br>
-            </label>
-            <label>Author:<br>
-                <input type="text" name="author" id="author"></br>
-            <label>Pages:<br>
-                <input type="number" name="pages" id="pages"></br>
-            </label>
-            <label for="status">Have you read it?</label><br>
-            <select name="status" id="status">
-                <option value="Read" selected>Read</option>
-                <option value="In Progress">In Progress</option>
-                <option value="Not Read">Not Read</option>                
-            </select>
-            <div class="right">
-                <button type="button" class="btn" id="addNewBook">Save book</button>
-                <button type="button" class="btn btn-cancel" onclick="hideForm()">Cancel</button>
-            </div>
-        </form>
-
         </section>
     </section>
     

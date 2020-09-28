@@ -56,7 +56,7 @@ body {
   
 }
 body {
-  background-color: #fff;
+  background-color: #fffff8;
   color: #293f50;
   font: 300 16px/1.5 "Roboto", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: flex;
@@ -125,6 +125,7 @@ footer {
 .col-side {
     width: 25%;
     padding-top: 30px;
+    padding-right: 15px;
 
 }
 .col-main {
@@ -140,14 +141,11 @@ footer {
 .box {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding-bottom: 20px;
 }
 .box div {
   color:#888;
-}
-.right {
-  float: right;
 }
 .text-wrapper {
   margin-bottom: 100px;
@@ -234,9 +232,6 @@ a:hover {
   background: linear-gradient(red, rgb(117, 9, 9));
 }
 .btn-status {
-  margin-top: 5px;
-  background: linear-gradient(#f0f0f2, #c6c7cc);
-  color: #000;
   font-size: 16px;
 }
 .btn:hover,
@@ -317,8 +312,8 @@ tr:last-child td{
 .card {
     display: inline-block;
     position: relative;
-    background: #fff;
     border: none;
+    background: #fff;
     box-shadow: 0 .25rem .5rem #00000080;
     border-radius: 3px;
     width: 200px;
