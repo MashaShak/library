@@ -49,10 +49,39 @@ table {
   Custom styles
   ========================================
 */
+html,
 body {
-  background-color: #fff;
+  margin: 0; 
+  height: 100%;
+  
+}
+body {
+  background-color: #fffef8;
   font: 300 16px/22px "Roboto", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
+  display: flex;
+  flex-direction: column;
+  
+  
+}
+/* 
+  ========================================
+    TYPOGRAPHY
+  ========================================
+*/
+h1 {
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  color: #293f50;
+}
+h2 {
+  font-size: 18px;
+  font-weight: 500;
+}
+p {
+  font-size: 20px;
+  line-height: 30px;
+}
   
 /*
   ========================================
@@ -68,27 +97,33 @@ body {
 }
 header {
   box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
-  font-weight: 500;
-  line-height: 50px;
-  text-align: left;
+  line-height: 80px;
   
 }
 header,
-.container {
-    margin: 0 auto;
-    padding-left: 30px;
-    padding-right: 30px;
+footer {
+   padding-left: 50px;
+   padding-right: 50px;
+}
+.intro {
+  padding-top: 100px;
+  text-align: center;
+  margin: 0 auto;
+  width: 560px;
+  text-align: center;
+}
+.main {
+  display: none;
+  text-align: center;
 }
 .col-side {
-    width: 30%;
+    width: 25%;
     padding-top: 30px;
-    
-  
+
 }
 .col-main {
-    width: 65%;
+    width: 70%;
     padding-top: 45px;
-  
 }
 .col-side,
 .col-main {
@@ -96,26 +131,28 @@ header,
     vertical-align: top;
     min-height: 100%;
 }
-.new-section {
-    border-bottom: 1px solid white;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-}
 .box {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-bottom: 1px solid white;
     padding-bottom: 20px;
-    margin-bottom: 20px;
+}
+.box div {
+  color:#888;
+}
+.right {
+  float: right;
+}
+.text-wrapper {
+  margin-bottom: 100px;
 }
 footer {
-    background: white;
-    line-height: 50px;
-    
-}
-#list {
-    display: none;
+  background-color: #324d61;
+  color: #fff;
+  line-height: 50px;
+  width: 100%;
+  margin-top: auto;
+  
 }
 .gradient {
     background: #cbe2c1;
@@ -123,18 +160,7 @@ footer {
     background: -moz-linear-gradient(to right, #cbe2c1, #f6f1d3);
     background: linear-gradient(to right, #cbe2c1, #f6f1d3);
 }
-/* 
-    TYPOGRAPHY
-*/
-h1 {
-    font-size: 24px;
-    letter-spacing: 1.5px;
-    color: #293f50;
-}
-h2 {
-    font-size: 18px;
-    font-weight: 500;
-}
+
 /*
   ========================================
   Clearfix
@@ -153,37 +179,61 @@ h2 {
   *zoom: 1;
 }
 /*
+  ========================================
     ICONS
+  ========================================
 */
 .material-icons.md-18 { font-size: 18px; }
+.material.icons.moved { transform: translateX(5);}
 /* 
-    OTHERS: LINKS, INPUT, BUTTONS, FORMS
+  ========================================
+    OTHERS: LINKS, BUTTONS
+  ========================================
 */
-
-#all {
-  color:#888;
-  font-size: 14px;
-  font-weight: 400;
+a,
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
 }
 
-.btn-style {
-  background-color: #3a506b;
+.btn-new {
+  color: #293f50;
+  background: transparent;
+  border: 3px solid #293f50;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 20px 30px;
+  outline: none;
+}
+
+.btn {
+  /*background-color: #3a506b;*/
+  background: linear-gradient(#49708f, #293f50);
   color: white;
   border: none;
   border-radius: 3px;
   cursor: pointer;
   font-size: 18px;
-  padding: 10px 30px;
+  padding: 10px 20px;
   outline: none;
+}
+.forms button {
+  font-size: 16px;
+}
+.btn-cancel {
+  background: linear-gradient(red, rgb(117, 9, 9));
 }
 .btn-status {
   margin-top: 5px;
-  background-color: lightgrey;
+  background: linear-gradient(#f0f0f2, #c6c7cc);
   color: #000;
   font-size: 16px;
 }
-
-.btn-style:hover,
+.btn:hover,
 .btn-status:hover {
   box-shadow: 0 .25rem .25rem #00000080;
 }
@@ -193,17 +243,19 @@ h2 {
   cursor: pointer;
   outline: none;
 }
-.forms {
-  display: none;
-  background: white;
+/*
+  ========================================
+  FORM
+  ========================================
+*/
+.form {
+  background: #fff;
   border-radius: 3px;
   box-shadow: 0 2rem 2rem #00000080;
   font-size: 18px;
   margin-top: 40px;
   padding: 25px;  
-  width: 100%;
-}
-.forms button {
+  text-align: left;
   width: 100%;
 }
 input, select {
@@ -214,45 +266,52 @@ input, select {
   padding: 5px;
   width: 100%;
 }
-
-
 /*
+  ========================================
     BOOKS LIST - TABLE
+  ======================================== 
 */
-
+#display,
+#list {
+  margin-top: 20px;
+}
+#list {
+  display: none;
+}
 table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: auto;
-  }
-
+  border-collapse: collapse;
+  width: 100%;
+  margin: auto;
+}
 th:first-child {
-    border-top-left-radius: 10px;
+  border-top-left-radius: 10px;
 }
 th:last-child {
-    border-top-right-radius: 10px;
+  border-top-right-radius: 10px;
 }
 th,td {
-    border-bottom: 1px solid #cecfd5;
-    padding: 20px 15px;
+  border-bottom: 1px solid #cecfd5;
+  padding: 20px 15px;
 }
 td:first-of-type {
-    text-align: left;
-    font-size: 18px;
-    font-weight: 700;
-    text-transform: capitalize;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: capitalize;
 }
 tr:last-child td{
-    border-bottom: 0;
+  border-bottom: 0;
 }
 
 /*
+  ========================================
     BOOKS GRID
+  ========================================
 */
-
 .card {
     display: inline-block;
     position: relative;
+    background: #fff;
     border: none;
     box-shadow: 0 .25rem .5rem #00000080;
     border-radius: 3px;
@@ -267,7 +326,7 @@ tr:last-child td{
     padding: 2px;
 }
 .card div:first-child {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     text-transform: capitalize;
     margin-top: 10px;
@@ -281,9 +340,7 @@ tr:last-child td{
 .card button:first-of-type {
   position: absolute; 
   bottom: 15px;
-  left: 15x;
-  right: 15px;
-  
+  left: 27px;
 }
 .card button:last-child {
   position: absolute;
